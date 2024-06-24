@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            background-color: #f1f1f1;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .tab-button {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+            background-color: #fff;
+        }
+        .tab-button-active {
+            background-color: #f1f1f1;
+            border-bottom: 2px solid #333;
+        }
+        .tab {
+            display: none;
+        }
+        .tab-active {
+            display: block;
+            padding: 20px;
+        }
+        embed {
+            width: 100%;
+            height: 80vh;
+            border: none;
+        }
+        .embed-container {
+            padding: 0 20px;
+            background-color: #fff; /* Add background color to match the rest */
+        }
+    </style>
+</head>
+<body>
+    <div class="tab-buttons">
+        <div class="tab-button tab-button-active" data-tab="tab-1">Project Completion</div>
+        <div class="tab-button" data-tab="tab-2">Missing Pictures Count</div>
+        <div class="tab-button" data-tab="tab-3">Installer Performance</div>
+        <div class="tab-button" data-tab="tab-4">Vendor Performance</div>
+        <div class="tab-button" data-tab="tab-5">Missing Pictures by Project</div>
+        <div class="tab-button" data-tab="tab-6">Vendor by Missing Pictures</div>
+        <div class="tab-button" data-tab="tab-7">Missing Picturues by Installer</div>
+    </div>
+    <div class="tab tab-active" id="tab-1">
+        <div class="embed-container">
+            <embed src="chart1.html"></embed>
+        </div>
+    </div>
+    <div class="tab" id="tab-2">
+        <div class="embed-container">
+            <embed src="chart2.html"></embed>
+        </div>
+    </div>
+    <div class="tab" id="tab-3">
+        <div class="embed-container">
+            <embed src="chart3.html"></embed>
+        </div>
+    </div>
+    <div class="tab" id="tab-4">
+        <div class="embed-container">
+            <embed src="chart4.html"></embed>
+        </div>
+    </div>
+    <div class="tab" id="tab-5">
+        <div class="embed-container">
+            <embed src="chart5.html"></embed>
+        </div>
+    </div>
+    <div class="tab" id="tab-6">
+        <div class="embed-container">
+            <embed src="chart6.html"></embed>
+        </div>
+    </div>
+    <div class="tab" id="tab-7">
+        <div class="embed-container">
+            <embed src="chart7.html"></embed>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('tab-button-active'));
+                document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('tab-active'));
+
+                button.classList.add('tab-button-active');
+                document.getElementById(button.dataset.tab).classList.add('tab-active');
+            });
+        });
+    </script>
+</body>
+</html>
